@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mihail Mihaylov — Director &amp; Editor</title>
+<meta name="description" content="Mihail Mihaylov — director and editor based in Sofia, Bulgaria. DaVinci Resolve post-production, camera work, and documentary filmmaking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=Newsreader:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C1614;
+    --ink-2:#251E1A;
+    --oxblood:#B23A2E;
+    --oxblood-dim:#7A2A21;
+    --brass:#D4A24C;
+    --ecru:#EFE6D8;
+    --ash:#A99C8F;
+
+    --font-display:'Unbounded', system-ui, sans-serif;
+    --font-body:'Newsreader', Georgia, serif;
+    --font-mono:'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+
+    --sp-1:.5rem; --sp-2:1rem; --sp-3:1.75rem; --sp-4:3rem; --sp-5:5rem; --sp-6:7.5rem;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--ink); color:var(--ecru);
+    font-family:var(--font-body); font-size:1rem; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none; margin:0; padding:0;}
+  h1,h2,h3{margin:0;}
+  p{margin:0;}
+  :focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
+
+  .container{max-width:1180px; margin-inline:auto; padding-inline:clamp(1.25rem,5vw,3rem);}
+  .section{padding-block:var(--sp-6);}
+  @media (max-width:700px){ .section{padding-block:var(--sp-5);} }
+
+  .eyebrow{
+    font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.16em;
+    font-size:.78rem; color:var(--brass); margin-bottom:var(--sp-2); display:block;
+  }
+  .section h2{
+    font-family:var(--font-display); font-weight:800; letter-spacing:-.01em;
+    font-size:clamp(1.9rem,4.4vw,2.9rem); line-height:1.08; max-width:16ch;
+    margin-bottom:var(--sp-4); color:var(--ecru);
+  }
+
+  /* reveal-on-scroll */
+  .reveal-pending{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal-visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(28,22,20,.86); backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(239,230,216,.1);
+  }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding-block:1.1rem; flex-wrap:wrap; gap:.75rem;}
+  
+  .brand-logo { height: 64px; width: auto; object-fit: contain; }
+  .footer-logo { height: 48px; width: auto; object-fit: contain; }
+
+  nav[aria-label="Primary"]{display:flex; gap:clamp(1rem,3vw,1.9rem); flex-wrap:wrap;}
+  nav[aria-label="Primary"] a{
+    font-family:var(--font-mono); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ash); border-bottom:1px solid transparent; padding-bottom:2px; transition:color .2s, border-color .2s;
+  }
+  nav[aria-label="Primary"] a:hover, nav[aria-label="Primary"] a:focus-visible{color:var(--ecru); border-color:var(--oxblood);}
+
+  /* ---------- splice strip (signature motif) ---------- */
+  .splice-strip{
+    display:flex; align-items:center; justify-content:space-between;
+    height:26px; overflow:hidden; padding-inline:clamp(1.25rem,5vw,3rem);
+  }
+  .splice-strip .cell{flex-shrink:0;}
+  .splice-strip .diamond{width:7px; height:7px; background:var(--oxblood); transform:rotate(45deg);}
+  .splice-strip .dot{width:4px; height:4px; border-radius:50%; background:var(--brass);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; min-height:88vh; display:flex; flex-direction:column; justify-content:center;
+    background:radial-gradient(ellipse at 72% 22%, rgba(178,58,46,.18), transparent 58%), var(--ink);
+    overflow:hidden;
+  }
+  .hero-inner{padding-block:var(--sp-5);}
+  .hero .eyebrow{font-size:.85rem;}
+  .hero h1{
+    font-family:var(--font-display); font-weight:900; text-transform:uppercase;
+    font-size:clamp(3.1rem,11vw,7.4rem); line-height:.92; letter-spacing:-.01em; color:var(--ecru);
+    margin-block:.4em .5em;
+  }
+  .hero-sub{
+    max-width:46ch; font-size:clamp(1.05rem,2vw,1.25rem); color:var(--ecru); font-style:italic;
+    margin-bottom:var(--sp-3);
+  }
+  .hero-meta{font-family:var(--font-mono); font-size:.8rem; letter-spacing:.06em; color:var(--ash); text-transform:uppercase;}
+  .scroll-cue{position:absolute; bottom:2.2rem; left:clamp(1.25rem,5vw,3rem); width:1px; height:52px; background:rgba(239,230,216,.28);}
+  .scroll-cue span{position:absolute; top:0; left:-2px; width:5px; height:5px; border-radius:50%; background:var(--brass); animation:scrollDot 2.4s ease-in-out infinite;}
+  @keyframes scrollDot{0%{top:0; opacity:1;} 85%{opacity:1;} 100%{top:47px; opacity:0;}}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid; grid-template-columns:1.25fr 1fr; gap:var(--sp-5); align-items:start;}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
+  .about-copy p{margin-bottom:1.2em; max-width:56ch; color:var(--ecru);}
+  .about-copy p:last-of-type{margin-bottom:0;}
+  .about-lang{
+    display:inline-block; margin-top:var(--sp-3); font-family:var(--font-mono); font-size:.75rem;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--ash); border:1px solid var(--oxblood-dim); padding:.4rem .75rem;
+  }
+  .portrait-panel{
+    position:relative; aspect-ratio:4/5; background:var(--ink-2);
+    border:1px solid var(--oxblood-dim);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.9rem;
+    clip-path:polygon(0 0,100% 0,100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+    overflow:hidden;
+  }
+
+  /* ---------- work / case card ---------- */
+  .case-card{
+    background:var(--ink-2); border:1px solid var(--oxblood-dim); padding:clamp(1.5rem,4vw,var(--sp-4));
+    clip-path:polygon(0 0,100% 0,100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+    margin-bottom: var(--sp-4);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .case-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--brass);
+  }
+  
+  .case-kicker{font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--brass); display:block; margin-bottom:.6rem;}
+  .case-title{font-family:var(--font-display); font-weight:700; font-size:clamp(1.5rem,3.6vw,2.2rem); color:var(--ecru); line-height:1.15;}
+  .case-title a:hover {color:var(--brass);} 
+  .case-title-bg{font-family:var(--font-body); font-style:italic; color:var(--ash); font-size:1rem; margin-top:.3rem;}
+  .case-grid{display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-4); margin-top:var(--sp-3); align-items:start;}
+  @media (max-width:800px){ .case-grid{grid-template-columns:1fr;} }
+  
+  .reel-frame{
+    position:relative; aspect-ratio:16/9; background:var(--ink);
+    border:1px solid rgba(239,230,216,.15);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.85rem;
+    overflow:hidden;
+  }
+  
+  .reel-frame img { transition: transform 0.5s ease; }
+  .case-card:hover .reel-frame img { transform: scale(1.04); }
+  .reel-label{font-family:var(--font-mono); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ash);}
+  .case-synopsis{color:var(--ecru); margin-bottom:1.2rem;}
+
+  /* ---------- work experience / slides (NEW) ---------- */
+  .exp-card {
+    background: var(--ink-2);
+    border: 1px solid var(--oxblood-dim);
+    padding: clamp(1.5rem, 4vw, var(--sp-4));
+    margin-bottom: var(--sp-4);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+  }
+  .exp-header {
+    display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
+    margin-bottom: var(--sp-3); gap: 1rem; border-bottom: 1px solid rgba(239,230,216,.1); padding-bottom: 1rem;
+  }
+  .exp-title {
+    font-family: var(--font-display); font-size: clamp(1.4rem, 3.2vw, 2rem); font-weight: 700; color: var(--ecru); margin: 0;
+  }
+  .exp-meta {
+    font-family: var(--font-mono); font-size: 0.85rem; color: var(--brass); text-transform: uppercase; letter-spacing: 0.1em; text-align: right;
+  }
+  .exp-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;
+  }
+  .exp-thumb {
+    position: relative; aspect-ratio: 16/9; overflow: hidden; border: 1px solid rgba(239,230,216,.15);
+    transition: transform 0.3s ease, border-color 0.3s ease; display: block;
+  }
+  /* NEW class for vertical Reels thumbnails */
+  .exp-thumb-vertical {
+    position: relative; aspect-ratio: 9/16; overflow: hidden; border: 1px solid rgba(239,230,216,.15);
+    transition: transform 0.3s ease, border-color 0.3s ease; display: block;
+  }
+  .exp-thumb:hover, .exp-thumb-vertical:hover { transform: translateY(-4px); border-color: var(--brass); }
+  .exp-thumb img, .exp-thumb-vertical img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .exp-thumb:hover img, .exp-thumb-vertical:hover img { transform: scale(1.04); }
+  .exp-label {
+    font-family: var(--font-body); font-style: italic; font-size: 0.95rem; color: var(--ash); margin-top: 0.6rem; 
+    display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center;
+  }
+
+  /* ---------- credits list ---------- */
+  .credits-block{margin-top:var(--sp-5);}
+  .credit-row{
+    display:flex; justify-content:space-between; gap:1.5rem; padding:var(--sp-2) 0;
+    border-bottom:1px solid rgba(239,230,216,.12); flex-wrap:wrap;
+  }
+  .credit-org{font-family:var(--font-mono); font-size:.85rem; letter-spacing:.03em; color:var(--ecru);}
+  .credit-role{color:var(--ash); font-size:.92rem; text-align:right;}
+  .credit-role em{color:var(--brass); font-style:normal;}
+
+  /* ---------- craft ---------- */
+  .craft-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:var(--sp-4);}
+  @media (max-width:800px){ .craft-grid{grid-template-columns:1fr;} }
+  .craft-primary, .craft-secondary{border:1px solid rgba(239,230,216,.12); padding:var(--sp-3);}
+  .craft-primary h3{font-family:var(--font-display); font-weight:700; font-size:clamp(1.6rem,3.4vw,2.1rem); color:var(--ecru); margin:.5rem 0 var(--sp-2);}
+  .tag-row{display:flex; flex-wrap:wrap; gap:.6rem;}
+  .tag{
+    border:1px solid var(--oxblood-dim); padding:.4rem .8rem; font-family:var(--font-mono);
+    font-size:.75rem; letter-spacing:.05em; text-transform:uppercase; color:var(--ecru);
+  }
+  .craft-secondary p{margin-top:var(--sp-3); color:var(--ash); font-size:.95rem; max-width:38ch;}
+
+  /* ---------- contact ---------- */
+  .contact-lede{max-width:48ch; color:var(--ecru); font-size:1.1rem; margin-bottom:var(--sp-3);}
+  .contact-links{display:flex; flex-wrap:wrap; gap:clamp(1.2rem,4vw,2.4rem);}
+  .contact-link{
+    font-family:var(--font-mono); font-size:.85rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ecru); border-bottom:1px solid var(--oxblood); padding-bottom:3px; transition:color .2s,border-color .2s;
+  }
+  .contact-link:hover, .contact-link:focus-visible{color:var(--brass); border-color:var(--brass);}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid rgba(239,230,216,.1); padding-block:var(--sp-3);}
+  .footer-inner{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.75rem;}
+  footer p{font-family:var(--font-mono); font-size:.75rem; letter-spacing:.04em; color:var(--ash);}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-inner">
+    <a class="brand" href="#top" aria-label="Mihail Mihaylov — home">
+      <img src="logo.png" alt="Mihail Mihaylov Logo" class="brand-logo">
+    </a>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#craft">Craft</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section id="top" class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow" data-reveal>Director — Editor</span>
+      <h1 data-reveal>Mihail<br>Mihaylov</h1>
+      <p class="hero-sub" data-reveal>Third-year director and editor at New Bulgarian University, with experience directing short films, documentaries, TV programming, and online short-form content.</p>
+      <p class="hero-meta" data-reveal>Sofia, Bulgaria · 42.70°N 23.32°E</p>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span></span></a>
+  </section>
+
+  <div class="splice-strip" aria-hidden="true"></div>
+
+  <section id="about" class="section">
+    <div class="container">
+      <span class="eyebrow" data-reveal>About</span>
+      <h2 data-reveal>Crafting visual stories.</h2>
+      <div class="about-grid">
+        <div class="about-copy" data-reveal>
+          <p>Hey, I'm Mihail. I'm a Sofia-based director who also edits videos. I'm currently in my final year studying Cinema and Television at New Bulgarian University.</p>
+          <p>I love the entire post-production puzzle, especially color grading and cutting in DaVinci Resolve. Over the past couple of years, my work has bounced between directing short documentaries and TV reality shows, to editing fast-paced digital content and broadcast deliveries.</p>
+          <p>When I'm not staring at a timeline, you can probably find me tinkering with 3D modeling software and experimenting with my old Olympus camera.</p>
+        </div>
+        <div class="portrait-panel" data-reveal aria-hidden="true">
+          <img src="1000000570.png" alt="Portrait of Mihail Mihaylov" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="splice-strip" aria-hidden="true"></div>
+
+  <!-- UNIVERSITY PROJECTS SECTION -->
+  <section id="work" class="section">
+    <div class="container">
+      <span class="eyebrow" data-reveal>Featured Work</span>
+      <h2 data-reveal>Selected Projects.</h2>
+
+      <article class="case-card" data-reveal>
+        <span class="case-kicker">Documentary · Director and Editor</span>
+        <h3 class="case-title">
+          <a href="https://youtu.be/_ajdklDn5_k" target="_blank" rel="noopener noreferrer">The Silent Lifts of Vitosha</a>
+        </h3>
+        <p class="case-title-bg">Created in 28 days in collaboration with students from University of Central Florida</p>
+        <div class="case-grid">
+          <div class="reel-frame">
+            <a href="https://youtu.be/_ajdklDn5_k" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/_ajdklDn5_k/maxresdefault.jpg" alt="The Silent Lifts of Vitosha Thumbnail" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0;">
+            </a>
+          </div>
+          <div class="case-copy">
+            <p class="case-synopsis">A documentary film exploring the history and impact of the Vitosha mountain lift closures.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-card" data-reveal>
+        <span class="case-kicker">TV Reality Show · Director</span>
+        <h3 class="case-title">
+          <a href="https://youtu.be/L-FgwXF-VA8?si=tXC_bETUdr_AfYAI" target="_blank" rel="noopener noreferrer">РимейкЪТ</a>
+        </h3>
+        <p class="case-title-bg">Three-episode reality competition from NBU</p>
+        <div class="case-grid">
+          <div class="reel-frame">
+            <a href="https://youtu.be/L-FgwXF-VA8?si=tXC_bETUdr_AfYAI" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/L-FgwXF-VA8/maxresdefault.jpg" alt="РимейкЪТ Thumbnail" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0;">
+            </a>
+          </div>
+          <div class="case-copy">
+            <p class="case-synopsis">The second season of a student reality competition project, requiring extensive crew organization and post-production management.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-card" data-reveal>
+        <span class="case-kicker">Short Film · Director and Editor</span>
+        <h3 class="case-title">
+          <a href="https://youtu.be/GpF_UJrMVxk" target="_blank" rel="noopener noreferrer">Заснет</a>
+        </h3>
+        <p class="case-title-bg">Original Short Film</p>
+        <div class="case-grid">
+          <div class="reel-frame">
+            <a href="https://youtu.be/GpF_UJrMVxk" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/GpF_UJrMVxk/maxresdefault.jpg" alt="Заснет Thumbnail" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0;">
+            </a>
+          </div>
+          <div class="case-copy">
+            <p class="case-synopsis">A narrative short film about the complexities of human relationships.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="splice-strip" aria-hidden="true"></div>
+
+  <!-- NEW WORK EXPERIENCE / SLIDES SECTION -->
+  <section id="experience" class="section">
+    <div class="container">
+      <span class="eyebrow" data-reveal>Work Experience</span>
+      <h2 data-reveal>Professional Edits.</h2>
+
+      <!-- SLIDE 1: Уча Зная и Играя -->
+      <div class="exp-card" data-reveal>
+        <div class="exp-header">
+          <h3 class="exp-title">Уча Зная и Играя</h3>
+          <span class="exp-meta">Timeless Production Group · Video Editor</span>
+        </div>
+        
+        <div class="exp-grid">
+          <div>
+            <a href="https://youtu.be/vC3i48d0Mms?list=PLGCzxbT2dltwQ5pACEMQvzrNZ0qKg9g41" target="_blank" rel="noopener noreferrer" class="exp-thumb">
+              <img src="https://img.youtube.com/vi/vC3i48d0Mms/hqdefault.jpg" alt="Сапунените мехури">
+            </a>
+            <span class="exp-label">Сапунените мехури</span>
+          </div>
+          <div>
+            <a href="https://youtu.be/CE5H1h6dpFw?list=PLGCzxbT2dltwQ5pACEMQvzrNZ0qKg9g41" target="_blank" rel="noopener noreferrer" class="exp-thumb">
+              <img src="https://img.youtube.com/vi/CE5H1h6dpFw/hqdefault.jpg" alt="Колелото">
+            </a>
+            <span class="exp-label">Колелото</span>
+          </div>
+          <div>
+            <a href="https://youtu.be/O9bSfzCGmyg?list=PLGCzxbT2dltwQ5pACEMQvzrNZ0qKg9g41" target="_blank" rel="noopener noreferrer" class="exp-thumb">
+              <img src="https://img.youtube.com/vi/O9bSfzCGmyg/hqdefault.jpg" alt="Фотография">
+            </a>
+            <span class="exp-label">Фотография</span>
+          </div>
+          <div>
+            <a href="https://youtu.be/l9OJxQ7X9vY?list=PLGCzxbT2dltwQ5pACEMQvzrNZ0qKg9g41" target="_blank" rel="noopener noreferrer" class="exp-thumb">
+              <img src="https://img.youtube.com/vi/l9OJxQ7X9vY/hqdefault.jpg" alt="Механика">
+            </a>
+            <span class="exp-label">Механика</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: DERONI PROMOTIONAL VIDEOS -->
+      <div class="exp-card" data-reveal>
+        <div class="exp-header">
+          <h3 class="exp-title">Deroni Promotional Videos</h3>
+          <span class="exp-meta">Timeless Production Group · Video Editor</span>
+        </div>
+        
+        <div class="exp-grid">
+          <div>
+            <a href="https://youtu.be/WjU_E-oboVI?si=YaGB9cmLAcbU7B6S" target="_blank" rel="noopener noreferrer" class="exp-thumb">
+              <img src="https://img.youtube.com/vi/WjU_E-oboVI/hqdefault.jpg" alt="Пица с риба тон">
+            </a>
+            <span class="exp-label">Пица с риба тон</span>
+          </div>
+          <div>
+            <a href="https://youtu.be/GLqVYzCXVwY?si=WRHVybNLGshqtcKv" target="_blank" rel="noopener noreferrer" class="exp-thumb">
+              <img src="https://img.youtube.com/vi/GLqVYzCXVwY/hqdefault.jpg" alt="Пролетна салата">
+            </a>
+            <span class="exp-label">Пролетна салата</span>
+          </div>
+          <div>
+            <a href="https://youtu.be/SCrA00wjq54?si=sQ4Wbcjy2-PUkDk_" target="_blank" rel="noopener noreferrer" class="exp-thumb">
+              <img src="https://img.youtube.com/vi/SCrA00wjq54/hqdefault.jpg" alt="Мини джобчета">
+            </a>
+            <span class="exp-label">Мини джобчета</span>
+          </div>
+          <div>
+            <a href="https://youtu.be/V8Y3cH2VdX0?si=C1y9-4KiMCQ-h6ag" target="_blank" rel="noopener noreferrer" class="exp-thumb">
+              <img src="https://img.youtube.com/vi/V8Y3cH2VdX0/hqdefault.jpg" alt="Кошници с чеснов сос">
+            </a>
+            <span class="exp-label">Кошници с чеснов сос</span>
+          </div>
+          <div>
+            <a href="https://youtu.be/WKBUVu_Tvmo?si=ei_4dZvon0yOiIsS" target="_blank" rel="noopener noreferrer" class="exp-thumb">
+              <img src="https://img.youtube.com/vi/WKBUVu_Tvmo/hqdefault.jpg" alt="Солена палачинкова торта">
+            </a>
+            <span class="exp-label">Солена палачинкова торта</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: SHORT FORM CONTENT -->
+      <div class="exp-card" data-reveal>
+        <div class="exp-header">
+          <h3 class="exp-title">Reels &amp; Short-Form Content</h3>
+          <span class="exp-meta">Digital Media · Video Editor</span>
+        </div>
+        
+        <div class="exp-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div>
+            <a href="https://www.instagram.com/reel/DP1d4V7DE5n/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="exp-thumb-vertical">
+              <img src="art-portal-cover.png" alt="Art Portal Reel">
+            </a>
+            <span class="exp-label">Art Portal Reel</span>
+          </div>
+          <div>
+            <a href="https://www.instagram.com/reel/DQwwvU7CGVI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="exp-thumb-vertical">
+              <img src="big-praz-1.png" alt="Big Praz Show - Anouncement Reel">
+            </a>
+            <span class="exp-label">Big Praz Show - Anouncement Reel</span>
+          </div>
+          <div>
+            <a href="https://www.facebook.com/share/v/1DQJKSR9fR/" target="_blank" rel="noopener noreferrer" class="exp-thumb-vertical">
+              <img src="big-praz-2.png" alt="Big Praz Show - Reel">
+            </a>
+            <span class="exp-label">Big Praz Show - Reel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="credits-block" data-reveal>
+        <span class="eyebrow">Credits</span>
+        <ul class="credit-list">
+          <li class="credit-row">
+            <span class="credit-org">New Bulgarian University</span>
+            <span class="credit-role">Cinema &amp; Television — Directing &amp; Editing <em>(current)</em></span>
+          </li>
+          <li class="credit-row">
+            <span class="credit-org">Timeless Production Group</span>
+            <span class="credit-role">Post-production editor</span>
+          </li>
+          <li class="credit-row">
+            <span class="credit-org">7Arts / ArtPortal</span>
+            <span class="credit-role">Editor and camera operator</span>
+          </li>
+          <li class="credit-row">
+            <span class="credit-org">Sofia International Film Festival</span>
+            <span class="credit-role">Photo and video coverage <em>(volunteer, 2 years)</em></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="splice-strip" aria-hidden="true"></div>
+
+  <section id="craft" class="section">
+    <div class="container">
+      <span class="eyebrow" data-reveal>Craft</span>
+      <h2 data-reveal>Built on DaVinci Resolve.</h2>
+      <div class="craft-grid">
+        <div class="craft-primary" data-reveal>
+          <span class="eyebrow" style="margin-bottom:0;">Primary</span>
+          <h3>DaVinci Resolve</h3>
+          <div class="tag-row">
+            <span class="tag">Edit</span>
+            <span class="tag">Color</span>
+            <span class="tag">Fusion</span>
+            <span class="tag">Fairlight</span>
+          </div>
+        </div>
+        <div class="craft-secondary" data-reveal>
+          <span class="eyebrow" style="margin-bottom:0;">Also</span>
+          <div class="tag-row">
+            <span class="tag">Adobe Premiere Pro</span>
+            <span class="tag">Blender</span>
+          </div>
+          <p>Two years running camera at Sofia International Film Festival, alongside broadcast post-production work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="splice-strip" aria-hidden="true"></div>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <span class="eyebrow" data-reveal>Contact</span>
+      <h2 data-reveal>Get in touch.</h2>
+      <p class="contact-lede" data-reveal>Based in Sofia, Bulgaria. Open to editing, color, and directing work.</p>
+      <div class="contact-links" data-reveal>
+        <a class="contact-link" href="mailto:mohailmihaylov2004@gmail.com">Email</a>
+        <a class="contact-link" href="https://www.instagram.com/mihail.m4307/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="contact-link" href="https://www.linkedin.com/in/mihail-mihaylov-bb0238247/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <img src="logo.png" alt="Mihail Mihaylov Logo" class="footer-logo">
+    <p>© 2026 Mihail Mihaylov · Sofia, Bulgaria</p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // populate the splice-strip dividers, sized to their own width
+    document.querySelectorAll('.splice-strip').forEach(strip => {
+      const spacing = 26;
+      const count = Math.max(10, Math.ceil(strip.offsetWidth / spacing));
+      let html = '';
+      for (let i = 0; i < count; i++) {
+        html += (i % 2 === 0)
+          ? '<span class="cell diamond"></span>'
+          : '<span class="cell dot"></span>';
+      }
+      strip.innerHTML = html;
+    });
+
+    // scroll reveal, skipped entirely for reduced-motion users
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if ('IntersectionObserver' in window && !prefersReduced) {
+      const els = document.querySelectorAll('[data-reveal]');
+      els.forEach(el => el.classList.add('reveal-pending'));
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(el => io.observe(el));
+    }
+  });
+</script>
+
+</body>
+</html>
